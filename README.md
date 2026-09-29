@@ -1,0 +1,1 @@
+# Manga Panel Studio\n\nTurn ideas and scripts into editable manga storyboards with a customizable character lab.\n
