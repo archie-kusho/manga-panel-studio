@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Manga Panel Studio"
+description = "A creative studio that turns story ideas and scripts into editable manga panel storyboards with visual direction controls and export-ready layouts."
+version = "1.0.0"
+id = "artifacts/manga-panel-studio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22322
+
+[services.development]
+run = "pnpm --filter @workspace/manga-panel-studio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/manga-panel-studio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/manga-panel-studio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22322"
+BASE_PATH = "/"
